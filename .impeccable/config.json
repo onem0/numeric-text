@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-11-21T12:23:24.909Z",
         "reason": "Claude: false positive. The .row and .install sections have 56-112px padding above their content (padding-top: clamp(3.5rem, 9vw, 7rem)); the static scan does not resolve clamp()"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-11-21T12:29:17.116Z",
+        "reason": "Claude: false positive, and site/ is the generated copy of demo/. The sections have 71px padding above their content in the browser (padding-top: clamp(3.5rem, 9vw, 7rem)); the static scan does not resolve clamp()"
       }
     ]
   }
