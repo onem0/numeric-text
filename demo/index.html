@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>numeric-text: numbers that roll only where they change</title>
+  <meta name="description" content="SwiftUI's numericText content transition for the web. When a number changes, only the digits that changed roll. No dependencies, works with any framework, Vue component included.">
+  <meta property="og:title" content="numeric-text">
+  <meta property="og:description" content="When a number changes, only the digits that changed roll. SwiftUI's numericText transition for the web.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://counter-demo.onemo.dev">
+  <meta name="theme-color" content="#f8f4ec">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23231c15'/%3E%3Cpath d='M10 12h12M10 20h12' stroke='%23f8f4ec' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='12' r='3' fill='%23d9482b'/%3E%3C/svg%3E">
+  <link rel="preload" href="./fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="name" href="#top">numeric-text</a>
+    <nav aria-label="Package">
+      <a href="#install">Install</a>
+      <a href="https://www.npmjs.com/package/numeric-text" rel="noopener">npm</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="claim">
+      <div class="hero-words">
+        <h1 id="claim">Only the digits that change, move.</h1>
+        <p class="lede">SwiftUI's <code>numericText</code> transition, for the web. Each digit rolls in its own place, the rest hold still, and the text beside the number glides along.</p>
+      </div>
+
+      <div class="hero-stage">
+        <output class="hero-figure" id="hero" for="less more shuffle">0</output>
+        <div class="hero-controls">
+          <button class="round" id="less" type="button" aria-label="One less">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+          </button>
+          <button class="round" id="more" type="button" aria-label="One more">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+          </button>
+          <button class="plain" id="shuffle" type="button">Any other number</button>
+          <p class="hint">Press and hold to run.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="row" aria-labelledby="drag">
+      <div class="row-words">
+        <h2 id="drag">Drag it as fast as you like</h2>
+        <p>Changes land at most once a frame. A digit that keeps changing rolls shorter and softer, like motion blur, and turns sharp the moment it rests.</p>
+        <label class="field" for="copies">Copies sold</label>
+        <input class="slider" id="copies" type="range" min="0" max="5" step="0.005" value="3.1">
+      </div>
+      <p class="row-figure sentence" aria-live="off">
+        <span class="fig" id="copies-fig">1,259</span> copies at €4.99 make <span class="fig" id="total-fig">€6,282.41</span>
+      </p>
+    </section>
+
+    <section class="row" aria-labelledby="run">
+      <div class="row-words">
+        <h2 id="run">Leave it running</h2>
+        <p>A place that has not moved stays crisp. The seconds roll alone until the minute turns, then the next place joins in, one after another from the right.</p>
+      </div>
+      <p class="row-figure clock"><span class="fig" id="clock">00:00:00</span></p>
+    </section>
+
+    <section class="row" aria-labelledby="words">
+      <div class="row-words">
+        <h2 id="words">Words come along</h2>
+        <p>It takes any text. Numbers are found inside it, a sign or a unit keeps its place, and what gets longer or shorter slides instead of jumping.</p>
+        <label class="field" for="free">Your text</label>
+        <input class="text" id="free" type="text" value="Track 3 of 12 · 2:45" autocomplete="off" spellcheck="false">
+        <div class="chips" role="group" aria-label="Examples">
+          <button type="button" data-text="Track 4 of 12 · 3:10">Track 4 of 12</button>
+          <button type="button" data-text="−12.5 dB">−12.5 dB</button>
+          <button type="button" data-text="Level 10">Level 10</button>
+          <button type="button" data-text="2:45–5:00 min">2:45–5:00</button>
+        </div>
+      </div>
+      <p class="row-figure free"><span class="fig" id="free-fig">Track 3 of 12 · 2:45</span></p>
+    </section>
+
+    <section class="row" aria-labelledby="locale">
+      <div class="row-words">
+        <h2 id="locale">Written the way your reader writes it</h2>
+        <p>Hand it a number and it is written by <code>Intl.NumberFormat</code>. The locale also tells the decimal mark from the grouping marks, so every digit keeps its place value.</p>
+        <div class="segments" role="group" aria-label="Locale">
+          <button type="button" data-locale="en" aria-pressed="true">en</button>
+          <button type="button" data-locale="de" aria-pressed="false">de</button>
+          <button type="button" data-locale="fr" aria-pressed="false">fr</button>
+          <button type="button" data-locale="de-CH" aria-pressed="false">de-CH</button>
+          <button type="button" data-locale="en-IN" aria-pressed="false">en-IN</button>
+        </div>
+      </div>
+      <p class="row-figure locale"><span class="fig" id="locale-fig">1,234,567.89</span></p>
+    </section>
+
+    <section class="install" id="install" aria-labelledby="use">
+      <div class="install-words">
+        <h2 id="use">Put it on your page</h2>
+        <p>No dependencies and no stylesheet. It respects reduced motion, and screen readers get the plain text.</p>
+        <div class="command">
+          <code id="command">npm i numeric-text</code>
+          <button class="plain" id="copy" type="button">Copy</button>
+        </div>
+      </div>
+
+      <div class="code">
+        <div class="tabs" role="tablist" aria-label="Framework">
+          <button type="button" role="tab" id="tab-js" aria-controls="panel-js" aria-selected="true">JavaScript</button>
+          <button type="button" role="tab" id="tab-vue" aria-controls="panel-vue" aria-selected="false" tabindex="-1">Vue and Nuxt</button>
+        </div>
+        <pre id="panel-js" role="tabpanel" aria-labelledby="tab-js" tabindex="0"><code>import { createNumericText } from 'numeric-text'
+
+const el = document.querySelector('#price')
+const price = createNumericText(el)
+
+<span class="c">// Only the digits that changed roll.</span>
+price.show('€12.50')
+
+<span class="c">// A number is written by Intl.NumberFormat.</span>
+price.show(1299)</code></pre>
+        <pre id="panel-vue" role="tabpanel" aria-labelledby="tab-vue" tabindex="0" hidden><code>&lt;script setup&gt;
+import { ref } from 'vue'
+import { NumericText } from 'numeric-text/vue'
+
+const players = ref(1259)
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;NumericText :value="players" /&gt;
+  &lt;NumericText :text="`${players} players`" /&gt;
+&lt;/template&gt;</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>MIT licensed. Made by Neo Karbach.</p>
+    <p>Set in Newsreader and Geist Mono.</p>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "name": "numeric-text",
+  "version": "0.1.0",
+  "description": "SwiftUI's numericText content transition for the web: when a number changes, only the digits that changed roll.",
+  "keywords": [
+    "numeric-text",
+    "number",
+    "animation",
+    "counter",
+    "count-up",
+    "rolling-number",
+    "ticker",
+    "odometer",
+    "content-transition",
+    "swiftui",
+    "vue",
+    "nuxt"
+  ],
+  "homepage": "https://counter-demo.onemo.dev",
+  "license": "MIT",
+  "author": "Neo Karbach",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.ts",
+      "default": "./dist/vue.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.js",
+    "demo": "npm run build && node scripts/build-demo.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vue": "^3.5.46"
+  }
+}
