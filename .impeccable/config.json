@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "demo/index.html"
+        ],
+        "createdAt": "2026-11-21T12:23:24.909Z",
+        "reason": "Claude: false positive. The .row and .install sections have 56-112px padding above their content (padding-top: clamp(3.5rem, 9vw, 7rem)); the static scan does not resolve clamp()"
+      }
+    ]
+  }
+}

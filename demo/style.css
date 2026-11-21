@@ -1,4 +1,5 @@
-/* A specimen sheet for moving numerals: warm paper, ink, one vermilion for what can be touched. */
+/* A ledger for moving numerals: the pale green of accounting paper, black ink, and the red ink
+   of a ledger for what can be touched. */
 
 @font-face {
   font-family: 'Newsreader';
@@ -7,24 +8,23 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist Mono';
-  src: url('./fonts/geist-mono.woff2') format('woff2');
-  font-weight: 100 900;
+  font-family: 'DM Mono';
+  src: url('./fonts/dm-mono.woff2') format('woff2');
+  font-weight: 400;
   font-display: swap;
 }
 
 :root {
   color-scheme: light;
-  --paper: oklch(97% 0.012 85);
-  --paper-deep: oklch(93.5% 0.018 85);
-  --ink: oklch(24% 0.02 60);
-  --ink-soft: oklch(45% 0.025 60);
-  --line: oklch(85% 0.02 80);
-  --red: oklch(57% 0.19 32);
-  --red-deep: oklch(49% 0.18 32);
-  --red-wash: oklch(57% 0.19 32 / 0.16);
+  --paper: oklch(95.5% 0.032 152);
+  --ink: oklch(23% 0.03 160);
+  --ink-soft: oklch(42% 0.04 158);
+  --line: oklch(82% 0.055 152);
+  --red: oklch(55% 0.2 28);
+  --red-deep: oklch(47% 0.19 28);
+  --red-wash: oklch(55% 0.2 28 / 0.18);
   --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
-  --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   --ease: cubic-bezier(.2, .7, .2, 1);
   --gutter: clamp(1rem, 4vw, 3.5rem);
 }
@@ -157,7 +157,8 @@ h1 { font-size: clamp(2.1rem, 1.2rem + 3.4vw, 3.6rem); line-height: 1.04; letter
   align-items: center;
   gap: 2rem clamp(2rem, 6vw, 6rem);
   margin-inline: var(--gutter);
-  padding-block: clamp(3.5rem, 9vw, 7rem);
+  padding-top: clamp(3.5rem, 9vw, 7rem);
+  padding-bottom: clamp(3.5rem, 9vw, 7rem);
   border-top: 1px solid var(--line);
 }
 .row-words { max-width: 27rem; }
@@ -196,7 +197,7 @@ h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem); line-height: 1.14; letter-s
   border: 0;
   border-radius: 50%;
   background: var(--red);
-  box-shadow: 0 4px 10px -3px oklch(40% 0.15 32 / 0.55);
+  box-shadow: 0 4px 10px -3px oklch(38% 0.16 28 / 0.55);
   transition: transform .25s var(--ease);
 }
 .slider::-moz-range-thumb {
@@ -205,7 +206,7 @@ h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem); line-height: 1.14; letter-s
   border: 0;
   border-radius: 50%;
   background: var(--red);
-  box-shadow: 0 4px 10px -3px oklch(40% 0.15 32 / 0.55);
+  box-shadow: 0 4px 10px -3px oklch(38% 0.16 28 / 0.55);
   transition: transform .25s var(--ease);
 }
 .slider:hover::-webkit-slider-thumb, .slider:active::-webkit-slider-thumb { transform: scale(1.15); }
@@ -255,7 +256,8 @@ h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem); line-height: 1.14; letter-s
   align-items: start;
   gap: 2.5rem clamp(2rem, 6vw, 6rem);
   margin-inline: var(--gutter);
-  padding-block: clamp(3.5rem, 9vw, 7rem);
+  padding-top: clamp(3.5rem, 9vw, 7rem);
+  padding-bottom: clamp(3.5rem, 9vw, 7rem);
   border-top: 1px solid var(--line);
 }
 .install-words { max-width: 27rem; }
@@ -271,26 +273,26 @@ h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem); line-height: 1.14; letter-s
 .command code { font-size: 0.95rem; }
 .command .plain { margin: 0; padding: 0; font-size: 0.94rem; min-width: 3.6em; text-align: right; }
 
-.code { min-width: 0; border-radius: 14px; background: var(--ink); color: oklch(92% 0.015 85); box-shadow: 0 30px 50px -28px oklch(24% 0.03 60 / 0.55); }
+.code { min-width: 0; border-radius: 14px; background: var(--ink); color: oklch(93% 0.03 152); box-shadow: 0 30px 50px -28px oklch(23% 0.05 160 / 0.6); }
 .tabs { display: flex; gap: 0.25rem; padding: 0.6rem 0.6rem 0; }
 .tabs button {
   padding: 0.5rem 0.9rem;
   border: 0;
   border-radius: 8px;
   background: transparent;
-  color: oklch(74% 0.02 80);
+  color: oklch(76% 0.04 152);
   font: inherit;
   font-size: 0.92rem;
   cursor: pointer;
   transition: background-color .2s var(--ease), color .2s var(--ease);
 }
-.tabs button:hover { color: oklch(96% 0.012 85); }
-.tabs button[aria-selected='true'] { background: oklch(33% 0.02 60); color: oklch(96% 0.012 85); }
-.tabs button:focus-visible, .code pre:focus-visible { outline-color: oklch(72% 0.17 40); }
-.code pre { margin: 0; padding: 1.25rem 1.5rem 1.6rem; overflow-x: auto; font-size: 0.86rem; line-height: 1.7; tab-size: 2; scrollbar-width: thin; scrollbar-color: oklch(45% 0.02 60) transparent; }
+.tabs button:hover { color: oklch(97% 0.025 152); }
+.tabs button[aria-selected='true'] { background: oklch(33% 0.035 160); color: oklch(97% 0.025 152); }
+.tabs button:focus-visible, .code pre:focus-visible { outline-color: oklch(74% 0.16 35); }
+.code pre { margin: 0; padding: 1.25rem 1.5rem 1.6rem; overflow-x: auto; font-size: 0.86rem; line-height: 1.7; tab-size: 2; scrollbar-width: thin; scrollbar-color: oklch(45% 0.04 158) transparent; }
 .code pre code { font-size: inherit; }
-.code ::selection { background: oklch(57% 0.19 32 / 0.5); color: oklch(98% 0.01 85); }
-.code .c { color: oklch(70% 0.03 80); }
+.code ::selection { background: oklch(55% 0.2 28 / 0.55); color: oklch(98% 0.02 152); }
+.code .c { color: oklch(72% 0.05 152); }
 
 /* --- Foot --- */
 
